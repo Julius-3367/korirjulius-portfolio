@@ -48,6 +48,9 @@
       .gradient-teal {
         background: linear-gradient(to right, #14b8a6, #06b6d4);
       }
+      .gradient-purple {
+        background: linear-gradient(to right, #8b5cf6, #a855f7);
+      }
       .card-hover {
         transition: all 0.3s ease;
       }
@@ -66,12 +69,77 @@
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
       }
+
+      /* New background styles */
+      body {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        position: relative;
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 10% 20%,
+            rgba(99, 102, 241, 0.15) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 70%,
+            rgba(236, 72, 153, 0.15) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 50% 30%,
+            rgba(20, 184, 166, 0.1) 0%,
+            transparent 30%
+          );
+        z-index: -1;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            to right,
+            rgba(30, 41, 59, 0.7),
+            rgba(15, 23, 42, 0.7)
+          ),
+          url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        z-index: -2;
+      }
+
+      section:not(.bg-white) {
+        background-color: transparent !important;
+      }
+
+      .bg-white {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .skill-bg {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
     </style>
   </head>
-  <body class="min-h-screen bg-gray-50">
+  <body class="min-h-screen text-gray-200">
     <!-- Header / Navbar -->
     <header
-      class="sticky top-0 z-50 bg-white/80 navbar-blur border-b border-gray-200"
+      class="sticky top-0 z-50 bg-slate-900/80 navbar-blur border-b border-slate-700"
     >
       <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
@@ -79,25 +147,25 @@
           <div class="hidden md:flex space-x-8">
             <button
               onclick="scrollToSection('about')"
-              class="text-gray-700 hover:text-indigo-500 transition-colors"
+              class="text-gray-300 hover:text-indigo-400 transition-colors"
             >
               About
             </button>
             <button
               onclick="scrollToSection('skills')"
-              class="text-gray-700 hover:text-indigo-500 transition-colors"
+              class="text-gray-300 hover:text-indigo-400 transition-colors"
             >
               Skills
             </button>
             <button
               onclick="scrollToSection('projects')"
-              class="text-gray-700 hover:text-indigo-500 transition-colors"
+              class="text-gray-300 hover:text-indigo-400 transition-colors"
             >
               Projects
             </button>
             <button
               onclick="scrollToSection('contact')"
-              class="text-gray-700 hover:text-indigo-500 transition-colors"
+              class="text-gray-300 hover:text-indigo-400 transition-colors"
             >
               Contact
             </button>
@@ -105,7 +173,7 @@
           <!-- Mobile menu button -->
           <button id="mobile-menu-btn" class="md:hidden p-2">
             <svg
-              class="w-6 h-6"
+              class="w-6 h-6 text-gray-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -123,25 +191,25 @@
         <div id="mobile-menu" class="hidden md:hidden pb-4">
           <button
             onclick="scrollToSection('about')"
-            class="block w-full text-left py-2 text-gray-700 hover:text-indigo-500"
+            class="block w-full text-left py-2 text-gray-300 hover:text-indigo-400"
           >
             About
           </button>
           <button
             onclick="scrollToSection('skills')"
-            class="block w-full text-left py-2 text-gray-700 hover:text-indigo-500"
+            class="block w-full text-left py-2 text-gray-300 hover:text-indigo-400"
           >
             Skills
           </button>
           <button
             onclick="scrollToSection('projects')"
-            class="block w-full text-left py-2 text-gray-700 hover:text-indigo-500"
+            class="block w-full text-left py-2 text-gray-300 hover:text-indigo-400"
           >
             Projects
           </button>
           <button
             onclick="scrollToSection('contact')"
-            class="block w-full text-left py-2 text-gray-700 hover:text-indigo-500"
+            class="block w-full text-left py-2 text-gray-300 hover:text-indigo-400"
           >
             Contact
           </button>
@@ -153,14 +221,14 @@
     <section class="py-20 px-4 sm:px-6 lg:px-8 animate-fade-in">
       <div class="max-w-4xl mx-auto text-center">
         <h1
-          class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-slide-up"
+          class="text-4xl md:text-6xl font-bold text-white mb-6 animate-slide-up"
         >
           Hi, I'm
           <span class="gradient-text">Korir Julius</span>
           – Software Engineer
         </h1>
         <p
-          class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-slide-up"
+          class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-slide-up"
         >
           I build scalable APIs, web apps, and modern digital solutions.
         </p>
@@ -177,7 +245,7 @@
             href="https://drive.google.com/file/d/1bo9dUIlO7KNPG37_hJbn69gXzRo4vVsi/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            class="border-2 border-gray-300 hover:border-indigo-500 px-8 py-3 rounded-full transition-all duration-300 bg-transparent flex items-center justify-center gap-2"
+            class="border-2 border-slate-600 hover:border-indigo-500 px-8 py-3 rounded-full transition-all duration-300 bg-transparent flex items-center justify-center gap-2 text-white"
           >
             <svg
               class="w-4 h-4"
@@ -199,11 +267,12 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section
+      id="about"
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-white text-gray-800"
+    >
       <div class="max-w-6xl mx-auto">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
-        >
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
           About Me
         </h2>
         <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -216,7 +285,7 @@
             />
           </div>
           <div>
-            <p class="text-lg text-gray-600 mb-6">
+            <p class="text-lg mb-6">
               I'm a passionate software engineer with expertise in building
               scalable web applications, APIs, and modern digital solutions. I
               love creating efficient, user-friendly systems that solve
@@ -237,7 +306,7 @@
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   ></path>
                 </svg>
-                <span class="text-gray-700">+254707670780</span>
+                <span>+254707670780</span>
               </div>
               <div class="flex items-center gap-3">
                 <svg
@@ -253,7 +322,7 @@
                     d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   ></path>
                 </svg>
-                <span class="text-gray-700">korirjulius001@gmail.com</span>
+                <span>korirjulius001@gmail.com</span>
               </div>
             </div>
             <div class="flex gap-4">
@@ -278,7 +347,7 @@
               >
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.20.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 极 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 极.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
                   />
                 </svg>
                 GitHub
@@ -293,13 +362,13 @@
                   class="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  viewBox="0 极 24 24"
                 >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 极 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                   ></path>
                 </svg>
                 Resume
@@ -313,9 +382,7 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
-        >
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
           Skills & Technologies
         </h2>
         <div
@@ -328,14 +395,17 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section
+      id="projects"
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-white text-gray-800"
+    >
       <div class="max-w-6xl mx-auto">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
-        >
-          Featured Project
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+          Featured Projects
         </h2>
-        <div class="max-w-2xl mx-auto">
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Hawthorn Mental Health Project -->
           <div class="bg-white rounded-lg shadow-lg card-hover overflow-hidden">
             <div class="gradient-teal h-48 flex items-center justify-center">
               <div class="text-white text-center">
@@ -344,15 +414,27 @@
               </div>
             </div>
             <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">
-                Hawthorn Mental Health
-              </h3>
-              <p class="text-gray-600 mb-4">
+              <h3 class="text-xl font-bold mb-3">Hawthorn Mental Health</h3>
+              <p class="mb-4">
                 A React-based system that allows patients to seamlessly book
                 hospital appointments online. Features include appointment
                 scheduling, patient management, and real-time availability
                 tracking.
               </p>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                  >React</span
+                >
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                  >Node.js</span
+                >
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+                  >MongoDB</span
+                >
+              </div>
               <a
                 href="http://hawthornmentalhealth.com"
                 target="_blank"
@@ -369,7 +451,64 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h极a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  ></path>
+                </svg>
+                Visit Project
+              </a>
+            </div>
+          </div>
+
+          <!-- Eden Kenya Project -->
+          <div class="bg-white rounded-lg shadow-lg card-hover overflow-hidden">
+            <div class="gradient-purple h-48 flex items-center justify-center">
+              <div class="text-white text-center">
+                <div class="text-4xl mb-2">🛒</div>
+                <div class="text-lg font-semibold">E-commerce Website</div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3">Eden Kenya</h3>
+              <p class="mb-4">
+                Built and customized an e-commerce website for Eden Kenya to
+                sell Eden Immune Booster. Integrated WordPress plugins for
+                payment, product management, and SEO optimization.
+              </p>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                  >WordPress</span
+                >
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                  >WooCommerce</span
+                >
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                  >SEO</span
+                >
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+                  >cPanel</span
+                >
+              </div>
+              <a
+                href="https://www.edenkenya.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gradient-bg hover:opacity-90 text-white px-6 py-2 rounded-md transition-all duration-300 inline-flex items-center gap-2"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="current极"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m极-6L10 14"
                   ></path>
                 </svg>
                 Visit Project
@@ -383,17 +522,13 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
-        >
+        <h2 class="text-3极 md:text-4xl font-bold text-center text-white mb-12">
           Get In Touch
         </h2>
         <div class="grid md:grid-cols-2 gap-12">
           <div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">
-              Let's Connect
-            </h3>
-            <p class="text-gray-600 mb-6">
+            <h3 class="text-xl font-semibold text-white mb-4">Let's Connect</h3>
+            <p class="text-gray-300 mb-6">
               I'm always interested in new opportunities and collaborations.
               Feel free to reach out if you'd like to work together!
             </p>
@@ -402,11 +537,15 @@
                 href="https://www.linkedin.com/in/korir-julius-499b01215"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="border border-gray-300 hover:border-indigo-500 p-2 rounded-md transition-colors"
+                class="border border-slate-600 hover:border-indigo-500 p-2 rounded-md transition-colors"
               >
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-极.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.920-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
                   />
                 </svg>
               </a>
@@ -414,26 +553,30 @@
                 href="https://github.com/Julius-3367"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="border border-gray-300 hover:border-indigo-500 p-2 rounded-md transition-colors"
+                class="border border-slate-600 hover:border-indigo-500 p-2 rounded-md transition-colors"
               >
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    d="M12 0c-6.626 0-12 5.373-极2 12 0 5.302 3.438 9.8 8.207 11.387.599.极1.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.极99-11.386 0-6.627-5.373-12-12-12z"
                   />
                 </svg>
               </a>
               <a
                 href="mailto:korirjulius001@gmail.com"
-                class="border border-gray-300 hover:border-indigo-500 p-2 rounded-md transition-colors"
+                class="border border-slate-600 hover:border-indigo-500 p-2 rounded-md transition-colors"
               >
                 <svg
-                  class="w-4 h-4"
+                  class="w-4 h-4 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    stroke-linecap="round"
+                    stroke-linecap极="round"
                     stroke-linejoin="round"
                     stroke-width="2"
                     d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
@@ -442,7 +585,7 @@
               </a>
             </div>
           </div>
-          <div class="bg-white rounded-lg shadow-lg p-6">
+          <div class="skill-bg rounded-lg shadow-lg p-6">
             <form id="contact-form" class="space-y-4">
               <div>
                 <input
@@ -450,7 +593,7 @@
                   name="name"
                   placeholder="Your Name"
                   required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  class="w-full px-4 py-2 border border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-slate-800 text-white"
                 />
               </div>
               <div>
@@ -459,7 +602,7 @@
                   name="email"
                   placeholder="Your Email"
                   required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  class="w-full px-4 py-2 border border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-slate-极00 text-white"
                 />
               </div>
               <div>
@@ -468,7 +611,7 @@
                   placeholder="Your Message"
                   required
                   rows="4"
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  class="w-full px-4 py-2 border border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-slate-800 text-white"
                 ></textarea>
               </div>
               <button
@@ -484,12 +627,155 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8">
+    <footer class="bg-slate-900 text-white py-8 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto text-center">
         <p class="text-gray-400">© 2025 Korir Julius. All Rights Reserved.</p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      // Skills data
+      const skills = [
+        "RESTful APIs",
+        "Node.js",
+        "Flask",
+        "Django",
+        "MySQL",
+        "MongoDB",
+        "PostgreSQL",
+        "DevOps",
+        "TypeScript",
+        "React.js",
+        "Next.js",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Python",
+        "Data Science",
+        "Odoo",
+        "WordPress",
+      ];
+
+      // Smooth scrolling function
+      function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenu) {
+          mobileMenu.classList.toggle("hidden");
+        }
+      }
+
+      // Populate skills grid
+      function populateSkills() {
+        const skillsGrid = document.getElementById("skills-grid");
+        if (!skillsGrid) return;
+
+        skills.forEach((skill) => {
+          const skillCard = document.createElement("div");
+          skillCard.className =
+            "skill-bg rounded-lg shadow-md card-hover cursor-pointer skill-card p-4 text-center";
+          skillCard.innerHTML = `
+            <div class="skill-text font-semibold text-white transition-all duration-300">
+              ${skill}
+            </div>
+          `;
+          skillsGrid.appendChild(skillCard);
+        });
+      }
+
+      // Handle contact form submission
+      function handleContactForm() {
+        const form = document.getElementById("contact-form");
+        if (!form) return;
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const formData = new FormData(form);
+          const data = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            message: formData.get("message"),
+          };
+
+          console.log("Form submitted:", data);
+          alert("Thank you for your message! I'll get back to you soon.");
+          form.reset();
+        });
+      }
+
+      // Add scroll effect to navbar
+      function handleNavbarScroll() {
+        const header = document.querySelector("header");
+        if (!header) return;
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 100) {
+            header.classList.add("shadow-lg");
+          } else {
+            header.classList.remove("shadow-lg");
+          }
+        });
+      }
+
+      // Initialize everything when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        try {
+          // Setup mobile menu
+          const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+          if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener("click", toggleMobileMenu);
+          }
+
+          // Populate skills
+          populateSkills();
+
+          // Setup contact form
+          handleContactForm();
+
+          // Setup navbar scroll effect
+          handleNavbarScroll();
+
+          // Close mobile menu when clicking on nav links
+          const mobileNavLinks = document.querySelectorAll(
+            "#mobile-menu button"
+          );
+          mobileNavLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              const mobileMenu = document.getElementById("mobile-menu");
+              if (mobileMenu) {
+                mobileMenu.classList.add("hidden");
+              }
+            });
+          });
+
+          setTimeout(() => {
+            const skillCards = document.querySelectorAll(".skill-card");
+            skillCards.forEach((card, index) => {
+              card.style.opacity = "0";
+              card.style.transform = "translateY(20px)";
+              card.style.transition = "all 0.5s ease";
+
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+              }, index * 50 + 100);
+            });
+          }, 500);
+        } catch (error) {
+          console.error("Error initializing portfolio:", error);
+        }
+      });
+    </script>
   </body>
 </html>
